@@ -1,0 +1,373 @@
+<!doctype html>
+<html>
+<head>
+    <title>UNPRG MAPS: GUIA PARA UBICACION DE FACULTADES EN LA UNPRG</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+</head>
+
+<body style="margin: 0; overflow: hidden;">
+    <!-- Overlay de inicio automático -->
+    <div id="ui-overlay"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 999; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; flex-direction: column; color: white; font-family: Arial;">
+        <div style="text-align: center;">
+            <h2>Unprg MAPS</h2>
+            <img src="assets/Presentacion.png" alt="UNPRG Logo" style="width: 750px; height: auto; margin-bottom: 20px;">
+            <p>Toca cualquier parte de la pantalla para comenzar</p>
+            <div style="margin-top: 20px; font-size: 14px; opacity: 0.8;">
+                Apunta la cámara al marcador de la facultad
+            </div>
+        </div>
+    </div>
+
+    <a-scene arjs="sourceType: webcam; trackingMethod: best; debugUIEnabled: false;">
+        <a-assets>
+            <!--FICSA-->
+            <img id="ficsa-img" src="assets/1-FICSA.png">
+            <img id="ficsa-ruta" src="assets/1-RutaFicsaMaps.png">
+            <audio id="ficsa-audio" src="assets/1-FICSA.mp3" preload="auto"></audio>
+            <a-asset-item id="flecha-asset" src="assets/FLECHAarriba.glb"></a-asset-item>
+
+            <!--FIME-->
+            <img id="fime-img" src="assets/2-FIME.png">
+            <img id="fime-ruta" src="assets/2-RutaFimeMaps.png">
+            <audio id="fime-audio" src="assets/2-FIME.mp3" preload="auto"></audio>
+            
+
+            <!--FACHSE-->
+            <img id="fachse-img" src="assets/3-FACHSE.png">
+            <img id="fachse-ruta" src="assets/3-RutaFachseMaps.png">
+            <audio id="fachse-audio" src="assets/3-FACHSE.mp3" preload="auto"></audio>
+
+            <!--FDCP-->
+            <img id="fdcp-img" src="assets/4-FDCP.png">
+            <img id="fdcp-ruta" src="assets/4-RutaFdcpMaps.png">
+            <audio id="fdcp-audio" src="assets/4-FDCP.mp3" preload="auto"></audio>
+            
+
+        </a-assets>
+
+        <!-- MARCADOR 1: Hiro -->
+        <a-marker preset="hiro" id="hiro-marker">
+            
+            <!-- Marco para la imagen de MAPS -->
+            <a-plane 
+            width="2.1" 
+            height="4.1" 
+            position="1.2 0.01 -1" 
+            rotation="-90 0 0" 
+            color="#000000">
+            </a-plane>
+
+            <!--IMAGEN DE MAPS-->
+            <a-plane src="#ficsa-ruta" 
+            width="2" 
+            height="4" 
+            position="1.2 0.05 -1" 
+            rotation="-90 0 0">
+            </a-plane>
+
+            <!-- Marco para la imagen de FACULTAD -->
+            <a-plane 
+            width="2.1" 
+            height="2.1" 
+            position="-1.2 0.01 -1" 
+            rotation="-90 0 0" 
+            color="#000000">
+            </a-plane>
+
+            <!--IMAGEN DE FACULTAD-->
+            <a-plane src="#ficsa-img" 
+            width="2" 
+            height="2" 
+            position="-1.2 0.05 -1" 
+            rotation="-90 0 0">
+            </a-plane>
+
+            <!-- MODELO 3D: Flecha 
+            <a-entity 
+            id="FICSA-model" 
+            gltf-model="#flecha-asset" 
+            scale="0.2 0.2 0.2" 
+            position="0 0 1" 
+            rotation="-90 0 0">
+            </a-entity -->
+        </a-marker>
+
+        <!-- MARCADOR 2: Personalizado FIME -->
+         <a-marker type="pattern" url="assets/2-fime.patt" id="fime-marker"> 
+
+            <!--IMAGEN DE MAPS-->
+
+            <!-- Marco para la imagen de MAPS -->
+            <a-plane 
+            width="2.1" 
+            height="4.1" 
+            position="1.2 0.01 -1" 
+            rotation="-90 0 0" 
+            color="#000000">
+            </a-plane>
+
+            <!--IMAGEN DE MAPS-->
+            <a-plane src="#fime-ruta" 
+            width="2" 
+            height="4" 
+            position="1.2 0.05 -1" 
+            rotation="-90 0 0">
+            </a-plane>
+            
+            <!-- Marco para la imagen de FACULTAD -->
+            <a-plane 
+            width="2.1" 
+            height="2.1" 
+            position="-1.2 0.01 -1" 
+            rotation="-90 0 0" 
+            color="#000000">
+            </a-plane>
+
+            <!--IMAGEN DE FACULTAD-->
+            <a-plane 
+            src="#fime-img"
+            width="2" 
+            height="2" 
+            position="-1.2 0.05 -1" 
+            rotation="-90 0 0">
+            </a-plane>
+
+        </a-marker>
+
+
+        <!-- MARCADOR 3: Personalizado FACHSE -->
+
+        <a-marker type="pattern" url="assets/6-FACSHE.patt" id="fachse-marker"> 
+
+            <!--IMAGEN DE MAPS-->
+
+            <!-- Marco para la imagen de MAPS -->
+            <a-plane 
+            width="2.1" 
+            height="4.1" 
+            position="1.2 0.01 -1" 
+            rotation="-90 0 0" 
+            color="#000000">
+            </a-plane>
+
+            <!--IMAGEN DE MAPS-->
+            <a-plane src="#fachse-ruta" 
+            width="2" 
+            height="4" 
+            position="1.2 0.05 -1" 
+            rotation="-90 0 0">
+            </a-plane>
+            
+            <!-- Marco para la imagen de FACULTAD -->
+            <a-plane 
+            width="2.1" 
+            height="2.1" 
+            position="-1.2 0.01 -1" 
+            rotation="-90 0 0" 
+            color="#000000">
+            </a-plane>
+
+            <!--IMAGEN DE FACULTAD-->
+            <a-plane 
+            src="#fachse-img"
+            width="2" 
+            height="2" 
+            position="-1.2 0.05 -1" 
+            rotation="-90 0 0">
+            </a-plane>
+
+        </a-marker>
+
+
+        <!-- MARCADOR 4: Personalizado FDCP -->
+        <a-marker type="pattern" url="assets/4-fdcp.patt" id="fdcp-marker">
+            <!--IMAGEN DE MAPS-->
+
+            <!-- Marco para la imagen de MAPS -->
+            <a-plane 
+            width="2.1" 
+            height="4.1" 
+            position="1.2 0.01 -1" 
+            rotation="-90 0 0" 
+            color="#000000">
+            </a-plane>
+
+            <!--IMAGEN DE MAPS-->
+            <a-plane src="#fdcp-ruta" 
+            width="2" 
+            height="4" 
+            position="1.2 0.05 -1" 
+            rotation="-90 0 0">
+            </a-plane>
+            
+            <!-- Marco para la imagen de FACULTAD -->
+            <a-plane 
+            width="2.1" 
+            height="2.1" 
+            position="-1.2 0.01 -1" 
+            rotation="-90 0 0" 
+            color="#000000">
+            </a-plane>
+
+            <!--IMAGEN DE FACULTAD-->
+            <a-plane 
+            src="#fdcp-img"
+            width="2" 
+            height="2" 
+            position="-1.2 0.05 -1" 
+            rotation="-90 0 0">
+            </a-plane>
+
+        </a-marker>
+
+        <a-entity camera></a-entity>
+    </a-scene>
+
+    <script>
+        let audioContext = null;
+        let audioElement = null;
+        let audioEnabled = false;
+        let isPlaying = false;
+        let markerVisible = false;
+        let appStarted = false;
+
+        const overlay = document.getElementById('ui-overlay');
+        const marker = document.getElementById('hiro-marker');
+        const fimeMarker = document.getElementById('fime-marker');
+
+
+        const fdcpMarker = document.getElementById('fdcp-marker');
+        const fachseMarker = document.getElementById('fachse-marker');
+
+
+        const fimeAudio = document.getElementById('fime-audio');
+        const ficsaAudio = document.getElementById('ficsa-audio');
+        const fachseAudio = document.getElementById('fachse-audio');
+        const fdcpAudio = document.getElementById('fdcp-audio');
+
+        function initializeAudio() {
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioContext.state === 'suspended') {
+                audioContext.resume();
+            }
+            audioEnabled = true;
+            console.log('Audio inicializado correctamente');
+            return true;
+        }
+
+        function startApp() {
+            if (appStarted) return;
+            appStarted = true;
+            initializeAudio();
+            overlay.style.display = 'none';
+            console.log('Aplicación iniciada');
+        }
+
+        function playSpecificAudio(audio) {
+            if (!audioEnabled || isPlaying) return;
+            audio.currentTime = 0;
+            audio.play().then(() => {
+                isPlaying = true;
+                console.log('Reproduciendo audio');
+            }).catch(error => {
+                console.error('Error al reproducir audio:', error);
+            });
+        }
+
+        function pauseAllAudio() {
+            [ficsaAudio, fimeAudio,fdcpAudio,fachseAudio].forEach(a => {
+                if (!a.paused) a.pause();
+            });
+            isPlaying = false;
+        }
+
+
+        overlay.addEventListener('click', startApp);
+        overlay.addEventListener('touchstart', startApp);
+        document.addEventListener('keydown', () => { if (!appStarted) startApp(); });
+        setTimeout(() => { if (!appStarted) startApp(); }, 3000);
+
+        marker.addEventListener('markerFound', () => {
+            markerVisible = true;
+            if (!appStarted) startApp();
+            playSpecificAudio(ficsaAudio);
+        });
+
+        marker.addEventListener('markerLost', () => {
+            markerVisible = false;
+            pauseAllAudio();
+        });
+
+        fimeMarker.addEventListener('markerFound', () => {
+            if (!appStarted) startApp();
+            playSpecificAudio(fimeAudio);
+        });
+
+
+        fimeMarker.addEventListener('markerLost', () => {
+            pauseAllAudio();
+        });
+
+        fachseMarker.addEventListener('markerFound', () => {
+            if (!appStarted) startApp();
+            playSpecificAudio(fachseAudio);
+        });
+
+
+        fachseMarker.addEventListener('markerLost', () => {
+            pauseAllAudio();
+        });
+
+        fdcpMarker.addEventListener('markerFound', () => {
+            if (!appStarted) startApp();
+            playSpecificAudio(fdcpAudio);
+        });
+
+
+        fdcpMarker.addEventListener('markerLost', () => {
+            pauseAllAudio();
+        });
+
+
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            [ficsaAudio, fimeAudio,fachseAudio,fdcpAudio].forEach(audio => {
+                audio.addEventListener('ended', () => {
+                    isPlaying = false;
+                    console.log('Audio terminado');
+                });
+                audio.addEventListener('error', e => {
+                    console.error('Error en el audio:', e);
+                });
+                audio.addEventListener('loadeddata', () => {
+                    console.log('Audio cargado');
+                });
+                audio.load();
+            });
+        });
+
+
+
+        let userInteracted = false;
+        const interactionEvents = ['touchstart', 'touchend', 'click', 'keydown'];
+        function handleUserInteraction() {
+            if (!userInteracted) {
+                userInteracted = true;
+                if (!appStarted) startApp();
+                interactionEvents.forEach(event => {
+                    document.removeEventListener(event, handleUserInteraction);
+                });
+            }
+        }
+        interactionEvents.forEach(event => {
+            document.addEventListener(event, handleUserInteraction, { passive: true });
+        });
+    </script>
+</body>
+</html>
